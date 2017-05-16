@@ -1,7 +1,5 @@
 package com.jason.test.testapp.java.test;
 
-import com.jason.test.testapp.java.access.packone.TestOne;
-
 /**
  * Created by jasonbook on 2017/5/16.
  */
@@ -20,6 +18,10 @@ public class JavaTest {
         System.out.println("s3==s4:" + (s3 == s4));
         System.out.println("s1==s5:" + (s1 == s5));
 
-        new TestOne();
+        System.out.println("s1 equals s2:" + (s1.equals(s2)));
+
+
+        Object obj = new Object();
+        obj.equals("");
     }
 }
