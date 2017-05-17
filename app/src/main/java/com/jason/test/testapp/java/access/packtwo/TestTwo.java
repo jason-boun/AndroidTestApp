@@ -1,12 +1,19 @@
 package com.jason.test.testapp.java.access.packtwo;
 
 import com.jason.test.testapp.java.access.packone.TestOne;
+import com.jason.test.testapp.utils.LogUtil;
 
 /**
  * Created by jasonbook on 2017/5/16.
  */
 
-public class TestTwo {
+public class TestTwo extends TestThree{
+
+    public TestTwo() {
+        LogUtil.printSystemInfo("TestTwo()");
+    }
+
+    public Integer num = 2;
 
     public static void main(String[] params){
         new TestThree();
