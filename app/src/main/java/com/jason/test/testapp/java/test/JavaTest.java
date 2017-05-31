@@ -1,5 +1,8 @@
 package com.jason.test.testapp.java.test;
 
+import java.util.Objects;
+import java.util.WeakHashMap;
+
 /**
  * Created by jasonbook on 2017/5/16.
  */
@@ -23,5 +26,9 @@ public class JavaTest {
 
         Object obj = new Object();
         obj.equals("");
+    }
+
+    public void testMethod(){
+        WeakHashMap<String, Object> weakHashMap = new WeakHashMap<>();
     }
 }
