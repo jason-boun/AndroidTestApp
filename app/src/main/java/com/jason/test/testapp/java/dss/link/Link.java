@@ -58,11 +58,11 @@ public class Link {
      *
      * @param node
      */
-    private void printLink(Node node) {
+    public void printLink(Node node) {
         if (node == null) {
             return;
         }
-        LogUtil.print(node.getData() + "");
+        LogUtil.print("",node.toString());
         printLink(node.getNext());
     }
 
