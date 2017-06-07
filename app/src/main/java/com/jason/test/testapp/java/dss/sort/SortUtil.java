@@ -1,4 +1,4 @@
-package com.jason.test.testapp.java.dss;
+package com.jason.test.testapp.java.dss.sort;
 
 import com.jason.test.testapp.utils.LogUtil;
 
@@ -9,13 +9,15 @@ import com.jason.test.testapp.utils.LogUtil;
 public class SortUtil {
 
     public static void main(String[] args) {
-        int[] testArr = {19, 32, 1, 56, 2, 8, 5, 134};
+        int[] testArr = {19, 32, 234, 1, 56, 2, 8, 5, 134, 34, 99, 39, 345, 103, 123};
 //        printArr(testArr);
 //        bubbleSort(testArr);
 //        selectSort(testArr);
 //        insertSort(testArr);
 //        mergeSort(testArr);
-        shellSort(testArr);
+//        shellSort(testArr);
+//        partition(testArr, 0, testArr.length - 1, 56);
+        quickSort(testArr, 0, testArr.length - 1);
         printArr(testArr);
     }
 
@@ -163,8 +165,82 @@ public class SortUtil {
         }
     }
 
-    public static void swap(int[] a, int left, int right) {
+    /**
+     * 快速排序
+     *
+     * @param a
+     * @param left
+     * @param right
+     */
+    public static void quickSort(int[] a, int left, int right) {
         if (a == null || a.length == 0) {
+            return;
+        }
+        if (left >= right || right >= a.length) {
+            return;
+        }
+        int partition = partition1(a, left, right);
+//        int partition = partition(a, left, right, a[right]);
+        quickSort(a, left, partition - 1);
+        quickSort(a, partition + 1, right);
+    }
+
+    public static int partition1(int[] a, int left, int right) {
+        //三数据项获取枢纽值，提升效率
+        int mid = left + (right - left) / 2;
+        if (a[mid] > a[right]) {
+            swap(a, mid, right);
+        }
+        if (a[left] > a[right]) {
+            swap(a, left, right);
+        }
+        if (a[mid] > a[left]) {
+            swap(a, mid, left);
+        }
+        int key = a[left];
+
+        while (left < right) {
+            while (a[right] >= key && right > left) {
+                right--;
+            }
+            a[left] = a[right];
+            while (a[left] <= key && right > left) {
+                left++;
+            }
+            a[right] = a[left];
+        }
+        a[right] = key;
+        return right;
+    }
+
+    /**
+     * 对数组通过指定枢纽值进行划分（是快速排序的基础和核心）
+     *
+     * @param a
+     */
+    public static int partition(int[] a, int left, int right, int pivot) {
+        if (a == null || a.length == 0) {
+            return 0;
+        }
+        while (true) {
+            while (left < right && a[left] < pivot) {
+                left++;
+            }
+            while (left < right && a[right] > pivot) {
+                right--;
+            }
+            if (left >= right) {
+                break;
+            } else {
+                swap(a, left, right);
+            }
+        }
+        swap(a, left, right);
+        return left;
+    }
+
+    public static void swap(int[] a, int left, int right) {
+        if (a == null || a.length == 0 || left < 0 || right >= a.length) {
             return;
         }
         int temp = a[left];
@@ -177,7 +253,9 @@ public class SortUtil {
             return;
         }
         for (int i : a) {
-            LogUtil.printSystemInfo("arr", i + "");
+            LogUtil.print("arr", i + "");
         }
     }
+
+
 }

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +25,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //网络状态变更广播接收器
     TextView mainTv1;
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.main_tv1).setOnClickListener(this);
     }
 
-
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_tv1:
@@ -50,6 +52,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
                 break;
         }
+    }
+
+    public void ObserverTest() {
+        BaseAdapter baseAdapter = new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return 0;
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return null;
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return 0;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                return null;
+            }
+        };
+        ListView listView = new ListView(this);
+        listView.setAdapter(baseAdapter);
     }
 
     public void printForegroundInfo() {

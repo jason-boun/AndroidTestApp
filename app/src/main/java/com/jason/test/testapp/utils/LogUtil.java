@@ -8,11 +8,11 @@ public class LogUtil {
 
     public static final String tag = "LogUtil";
 
-    public static void printSystemInfo(String tag, String info) {
+    public static void print(String tag, String info) {
         System.out.println(tag + "==" + info);
     }
 
-    public static void printSystemInfo(String info) {
-        printSystemInfo(tag, info);
+    public static void print(String info) {
+        print(tag, info);
     }
 }

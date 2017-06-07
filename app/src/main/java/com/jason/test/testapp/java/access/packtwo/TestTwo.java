@@ -10,7 +10,7 @@ import com.jason.test.testapp.utils.LogUtil;
 public class TestTwo extends TestThree{
 
     public TestTwo() {
-        LogUtil.printSystemInfo("TestTwo()");
+        LogUtil.print("TestTwo()");
     }
 
     public Integer num = 2;

@@ -9,7 +9,7 @@ import com.jason.test.testapp.utils.LogUtil;
 class TestThree {
 
     public TestThree() {
-        LogUtil.printSystemInfo("TestThree()");
+        LogUtil.print("TestThree()");
     }
 
     public static void main(String[] params) {

@@ -5,7 +5,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 
 import com.jason.test.testapp.utils.AppInfoUtil;
 import com.jason.test.testapp.utils.LogUtil;
@@ -45,7 +44,7 @@ public class MService extends Service {
 
     public void printForegroundInfo() {
         boolean result = AppInfoUtil.isRunningForeground(this);
-        LogUtil.printSystemInfo("isRunningForeground==" + result);
+        LogUtil.print("isRunningForeground==" + result);
     }
 
     /**

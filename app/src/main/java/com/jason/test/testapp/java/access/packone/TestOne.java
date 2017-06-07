@@ -12,7 +12,7 @@ public class TestOne extends TestTwo implements Cloneable{
     public Integer num = 1;
 
     public TestOne() {
-        LogUtil.printSystemInfo("TestOne()");
+        LogUtil.print("TestOne()");
     }
 
     public static void main(String[] params) {
