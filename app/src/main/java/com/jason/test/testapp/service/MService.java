@@ -30,10 +30,9 @@ public class MService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-//        startTimer();
-        IntentService intentService = new MyIntentService("myIntentService");
-        intentService.startForeground(0,null);
-        intentService.onStart(new Intent(),0);
+        startTimer();
+//        IntentService intentService = new MyIntentService("myIntentService");
+//        intentService.onStart(new Intent(),0);
     }
 
     @Override

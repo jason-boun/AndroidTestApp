@@ -9,15 +9,16 @@ import com.jason.test.testapp.utils.LogUtil;
 public class SortUtil {
 
     public static void main(String[] args) {
-        int[] testArr = {19, 32, 234, 1, 56, 2, 8, 5, 134, 34, 99, 39, 345, 103, 123};
+        int[] testArr = ArrayData.arr;
 //        printArr(testArr);
 //        bubbleSort(testArr);
 //        selectSort(testArr);
 //        insertSort(testArr);
 //        mergeSort(testArr);
-//        shellSort(testArr);
+//        mergeSort(testArr,0, testArr.length-1);
+        shellSort(testArr);
 //        partition(testArr, 0, testArr.length - 1, 56);
-        quickSort(testArr, 0, testArr.length - 1);
+//        quickSort(testArr, 0, testArr.length - 1);
         printArr(testArr);
     }
 
@@ -87,20 +88,13 @@ public class SortUtil {
      *
      * @param a
      */
-    public static void mergeSort(int[] a) {
-        if (a == null || a.length == 0) {
-            return;
-        }
-        sort(a, 0, a.length - 1);
-    }
-
-    public static void sort(int[] a, int left, int right) {
-        if (left >= right) {
+    public static void mergeSort(int[] a, int left, int right) {
+        if (a == null || a.length == 0 || left >= right) {
             return;
         }
         int mid = (left + right) / 2;
-        sort(a, left, mid);
-        sort(a, mid + 1, right);
+        mergeSort(a, left, mid);
+        mergeSort(a, mid + 1, right);
         merge(a, left, mid, right);
     }
 
@@ -109,7 +103,6 @@ public class SortUtil {
         int[] temp = new int[a.length];
         int tempIndex = left;
         int rightIndex = mid + 1;
-
         // 逐个归并：归并左右两个数组相同长度的部分
         while (left <= mid && rightIndex <= right) {
             if (a[left] <= a[rightIndex]) {
@@ -166,11 +159,7 @@ public class SortUtil {
     }
 
     /**
-     * 快速排序
-     *
-     * @param a
-     * @param left
-     * @param right
+     * 快速排序，时间复杂度（不稳定，平均是O(N*logN)，最差可以到O(N^2））
      */
     public static void quickSort(int[] a, int left, int right) {
         if (a == null || a.length == 0) {
@@ -180,7 +169,6 @@ public class SortUtil {
             return;
         }
         int partition = partition1(a, left, right);
-//        int partition = partition(a, left, right, a[right]);
         quickSort(a, left, partition - 1);
         quickSort(a, partition + 1, right);
     }
@@ -216,7 +204,8 @@ public class SortUtil {
     /**
      * 对数组通过指定枢纽值进行划分（是快速排序的基础和核心）
      *
-     * @param a
+     * @param pivot 枢纽值：可以选择a[right]
+     * @return
      */
     public static int partition(int[] a, int left, int right, int pivot) {
         if (a == null || a.length == 0) {

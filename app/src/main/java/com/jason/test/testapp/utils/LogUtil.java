@@ -9,7 +9,7 @@ public class LogUtil {
     public static final String tag = "LogUtil";
 
     public static void print(String tag, String info) {
-        System.out.println(tag + info);
+        System.out.println(tag + "：" + info);
     }
 
     public static void print(String info) {
