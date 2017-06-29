@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setTitle("首页");
         findViewById(R.id.main_tv2).setOnClickListener(this);
         findViewById(R.id.main_tv1).setOnClickListener(this);
+        ViewGroup viewGroup = new ViewGroup(this) {
+            @Override
+            protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
+            }
+        };
     }
 
     public void onClick(View view) {
