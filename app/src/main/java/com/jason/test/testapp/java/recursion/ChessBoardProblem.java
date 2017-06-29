@@ -1,23 +1,23 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [ÆåÅÌ¸²¸ÇÎÊÌâ£ºÉæ¼°µİ¹é]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-2 ÉÏÎç2:06:51]
+ * @Description: [æ£‹ç›˜è¦†ç›–é—®é¢˜ï¼šæ¶‰åŠé€’å½’]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-2 ä¸Šåˆ2:06:51]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  * <p>
- * ÎØÎØ~~ÎÒÒªË¯¾õ£¡£¡£¡£¡£¡£¡£¡£¡
+ * å‘œå‘œ~~æˆ‘è¦ç¡è§‰ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
  */
 public class ChessBoardProblem {
 
-    private int[][] Board;    //Ä£ÄâÆåÅÌ
+    private int[][] Board;    //æ¨¡æ‹Ÿæ£‹ç›˜
     private int specialRow;
     private int specialCol;
     private int size;
     private int type = 0;
 
     public ChessBoardProblem(int specialRow, int specialCol, int size) {
-        //³õÊ¼»¯ÆåÅÌ ºÍ ÌØÊâ·½¸ñÎ»ÖÃ
+        //åˆå§‹åŒ–æ£‹ç›˜ å’Œ ç‰¹æ®Šæ–¹æ ¼ä½ç½®
         this.size = (int) Math.pow(2, size);
         this.Board = new int[this.size][this.size];
         this.specialRow = specialRow;
@@ -25,11 +25,11 @@ public class ChessBoardProblem {
     }
 
     /**
-     * @param specialRow ÌØÊâ·½¸ñËùÔÚÎ»ÖÃµÄĞĞ±ê
-     * @param specialCol ÌØÊâ·½¸ñËùÔÚÎ»ÖÃµÄÁĞ±ê
-     * @param leftRow    Òª´¦ÀíµÄ×ÓÆåÅÌµÄ×óÉÏ·½ĞĞ±ê
-     * @param leftCol    Òª´¦ÀíµÄ×ÓÆåÅÌµÄ×óÉÏ·½ÁĞ±ê
-     * @param size       Òª´¦ÀíµÄ×ÓÆåÅÌµÄ´óĞ¡(size * size)
+     * @param specialRow ç‰¹æ®Šæ–¹æ ¼æ‰€åœ¨ä½ç½®çš„è¡Œæ ‡
+     * @param specialCol ç‰¹æ®Šæ–¹æ ¼æ‰€åœ¨ä½ç½®çš„åˆ—æ ‡
+     * @param leftRow    è¦å¤„ç†çš„å­æ£‹ç›˜çš„å·¦ä¸Šæ–¹è¡Œæ ‡
+     * @param leftCol    è¦å¤„ç†çš„å­æ£‹ç›˜çš„å·¦ä¸Šæ–¹åˆ—æ ‡
+     * @param size       è¦å¤„ç†çš„å­æ£‹ç›˜çš„å¤§å°(size * size)
      */
     private void ChessBoard(int specialRow, int specialCol, int leftRow, int leftCol, int size) {
         if (size == 1)
@@ -37,43 +37,43 @@ public class ChessBoardProblem {
         int subSize = size / 2;
         type = type % 4 + 1;
         int t = type;
-        /*´¦Àí»®·ÖËÄ¸ö×ÓÆåÅÌµÄ×óÉÏ·½ÄÇ¸öÆåÅÌ*/
+        /*å¤„ç†åˆ’åˆ†å››ä¸ªå­æ£‹ç›˜çš„å·¦ä¸Šæ–¹é‚£ä¸ªæ£‹ç›˜*/
         if (specialRow < leftRow + subSize && specialCol < leftCol + subSize) {
-            //±íÊ¾ÌØÊâ·½¸ñ´æÔÚÓÚ×ÓÆåÅÌµÄ×óÉÏ½Ç
-            ChessBoard(specialRow, specialCol, leftRow, leftCol, subSize);    //±¾À´¾ÍÓĞÌØÊâ·½¸ñ£¬µİ¹éµ÷ÓÃ¿©!
+            //è¡¨ç¤ºç‰¹æ®Šæ–¹æ ¼å­˜åœ¨äºå­æ£‹ç›˜çš„å·¦ä¸Šè§’
+            ChessBoard(specialRow, specialCol, leftRow, leftCol, subSize);    //æœ¬æ¥å°±æœ‰ç‰¹æ®Šæ–¹æ ¼ï¼Œé€’å½’è°ƒç”¨å’¯!
         } else {
-            //Èç¹ûÌØÊâ·½¸ñ²»ÔÚ×ÓÆåÅÌµÄ×óÉÏ½Ç£¬ÄÇÃ´±Ø¶¨±»»®·ÖÖ®ºóÒª²¹³äµÄÌØÊâ·½¸ñÔÚ×óÉÏ½ÇÇøÓòÖĞµÄÓÒÏÂ·½ÄÇ¸ö·½¸ñ
-            Board[leftRow + subSize - 1][leftCol + subSize - 1] = t;    //ÉèÖÃÎªtypeÀàĞÍµÄ¹ÇÅÆ(¼´Õâ¸ö×ÓÆåÅÌÒ²ÓĞÁËÌØÊâ·½¸ñ)
-            ChessBoard(leftRow + subSize - 1, leftCol + subSize - 1, leftRow, leftCol, subSize);    //ÓĞÁËÕâ¸öÌØÊâ·½¸ñÖ®ºó£¬µİ¹éµ÷ÓÃ¿©!
+            //å¦‚æœç‰¹æ®Šæ–¹æ ¼ä¸åœ¨å­æ£‹ç›˜çš„å·¦ä¸Šè§’ï¼Œé‚£ä¹ˆå¿…å®šè¢«åˆ’åˆ†ä¹‹åè¦è¡¥å……çš„ç‰¹æ®Šæ–¹æ ¼åœ¨å·¦ä¸Šè§’åŒºåŸŸä¸­çš„å³ä¸‹æ–¹é‚£ä¸ªæ–¹æ ¼
+            Board[leftRow + subSize - 1][leftCol + subSize - 1] = t;    //è®¾ç½®ä¸ºtypeç±»å‹çš„éª¨ç‰Œ(å³è¿™ä¸ªå­æ£‹ç›˜ä¹Ÿæœ‰äº†ç‰¹æ®Šæ–¹æ ¼)
+            ChessBoard(leftRow + subSize - 1, leftCol + subSize - 1, leftRow, leftCol, subSize);    //æœ‰äº†è¿™ä¸ªç‰¹æ®Šæ–¹æ ¼ä¹‹åï¼Œé€’å½’è°ƒç”¨å’¯!
         }
 
-		/*´¦Àí»®·ÖËÄ¸ö×ÓÆåÅÌµÄÓÒÉÏ·½ÄÇ¸öÆåÅÌ*/
+		/*å¤„ç†åˆ’åˆ†å››ä¸ªå­æ£‹ç›˜çš„å³ä¸Šæ–¹é‚£ä¸ªæ£‹ç›˜*/
         if (specialRow < leftRow + subSize && specialCol >= leftCol + subSize) {
-            //±íÊ¾ÌØÊâ·½¸ñ´æÔÚÓÚ×ÓÆåÅÌµÄÓÒÉÏ½Ç
-            ChessBoard(specialRow, specialCol, leftRow, leftCol + subSize, subSize);    //±¾À´¾ÍÓĞÌØÊâ·½¸ñ£¬µİ¹éµ÷ÓÃ¿©!
+            //è¡¨ç¤ºç‰¹æ®Šæ–¹æ ¼å­˜åœ¨äºå­æ£‹ç›˜çš„å³ä¸Šè§’
+            ChessBoard(specialRow, specialCol, leftRow, leftCol + subSize, subSize);    //æœ¬æ¥å°±æœ‰ç‰¹æ®Šæ–¹æ ¼ï¼Œé€’å½’è°ƒç”¨å’¯!
         } else {
-            //Èç¹ûÌØÊâ·½¸ñ²»ÔÚ×ÓÆåÅÌµÄÓÒÉÏ½Ç£¬ÄÇÃ´±Ø¶¨±»»®·ÖÖ®ºóÒª²¹³äµÄÌØÊâ·½¸ñÔÚÓÒÉÏ½ÇÇøÓòÖĞµÄ×óÏÂ·½ÄÇ¸ö·½¸ñ
-            Board[leftRow + subSize - 1][leftCol + subSize] = t;    //ÉèÖÃÎªtypeÀàĞÍµÄ¹ÇÅÆ(¼´Õâ¸ö×ÓÆåÅÌÒ²ÓĞÁËÌØÊâ·½¸ñ)
-            ChessBoard(leftRow + subSize - 1, leftCol + subSize, leftRow, leftCol + subSize, subSize);    //ÓĞÁËÕâ¸öÌØÊâ·½¸ñÖ®ºó£¬µİ¹éµ÷ÓÃ¿©!
+            //å¦‚æœç‰¹æ®Šæ–¹æ ¼ä¸åœ¨å­æ£‹ç›˜çš„å³ä¸Šè§’ï¼Œé‚£ä¹ˆå¿…å®šè¢«åˆ’åˆ†ä¹‹åè¦è¡¥å……çš„ç‰¹æ®Šæ–¹æ ¼åœ¨å³ä¸Šè§’åŒºåŸŸä¸­çš„å·¦ä¸‹æ–¹é‚£ä¸ªæ–¹æ ¼
+            Board[leftRow + subSize - 1][leftCol + subSize] = t;    //è®¾ç½®ä¸ºtypeç±»å‹çš„éª¨ç‰Œ(å³è¿™ä¸ªå­æ£‹ç›˜ä¹Ÿæœ‰äº†ç‰¹æ®Šæ–¹æ ¼)
+            ChessBoard(leftRow + subSize - 1, leftCol + subSize, leftRow, leftCol + subSize, subSize);    //æœ‰äº†è¿™ä¸ªç‰¹æ®Šæ–¹æ ¼ä¹‹åï¼Œé€’å½’è°ƒç”¨å’¯!
         }
-        /*´¦Àí»®·ÖËÄ¸ö×ÓÆåÅÌµÄ×óÏÂ·½ÄÇ¸öÆåÅÌ*/
+        /*å¤„ç†åˆ’åˆ†å››ä¸ªå­æ£‹ç›˜çš„å·¦ä¸‹æ–¹é‚£ä¸ªæ£‹ç›˜*/
         if (specialRow >= leftRow + subSize && specialCol < leftCol + subSize) {
-            //±íÊ¾ÌØÊâ·½¸ñ´æÔÚÓÚ×ÓÆåÅÌµÄ×óÏÂ½Ç
-            ChessBoard(specialRow, specialCol, leftRow + subSize, leftCol, subSize);    //±¾À´¾ÍÓĞÌØÊâ·½¸ñ£¬µİ¹éµ÷ÓÃ¿©!
+            //è¡¨ç¤ºç‰¹æ®Šæ–¹æ ¼å­˜åœ¨äºå­æ£‹ç›˜çš„å·¦ä¸‹è§’
+            ChessBoard(specialRow, specialCol, leftRow + subSize, leftCol, subSize);    //æœ¬æ¥å°±æœ‰ç‰¹æ®Šæ–¹æ ¼ï¼Œé€’å½’è°ƒç”¨å’¯!
         } else {
-            //Èç¹ûÌØÊâ·½¸ñ²»ÔÚ×ÓÆåÅÌµÄ×óÏÂ½Ç£¬ÄÇÃ´±Ø¶¨±»»®·ÖÖ®ºóÒª²¹³äµÄÌØÊâ·½¸ñÔÚ×óÏÂ½ÇÇøÓòÖĞµÄÓÒÉÏ·½ÄÇ¸ö·½¸ñ
-            Board[leftRow + subSize][leftCol + subSize - 1] = t;    //ÉèÖÃÎªtypeÀàĞÍµÄ¹ÇÅÆ(¼´Õâ¸ö×ÓÆåÅÌÒ²ÓĞÁËÌØÊâ·½¸ñ)
-            ChessBoard(leftRow + subSize, leftCol + subSize - 1, leftRow + subSize, leftCol, subSize);    //ÓĞÁËÕâ¸öÌØÊâ·½¸ñÖ®ºó£¬µİ¹éµ÷ÓÃ¿©!
+            //å¦‚æœç‰¹æ®Šæ–¹æ ¼ä¸åœ¨å­æ£‹ç›˜çš„å·¦ä¸‹è§’ï¼Œé‚£ä¹ˆå¿…å®šè¢«åˆ’åˆ†ä¹‹åè¦è¡¥å……çš„ç‰¹æ®Šæ–¹æ ¼åœ¨å·¦ä¸‹è§’åŒºåŸŸä¸­çš„å³ä¸Šæ–¹é‚£ä¸ªæ–¹æ ¼
+            Board[leftRow + subSize][leftCol + subSize - 1] = t;    //è®¾ç½®ä¸ºtypeç±»å‹çš„éª¨ç‰Œ(å³è¿™ä¸ªå­æ£‹ç›˜ä¹Ÿæœ‰äº†ç‰¹æ®Šæ–¹æ ¼)
+            ChessBoard(leftRow + subSize, leftCol + subSize - 1, leftRow + subSize, leftCol, subSize);    //æœ‰äº†è¿™ä¸ªç‰¹æ®Šæ–¹æ ¼ä¹‹åï¼Œé€’å½’è°ƒç”¨å’¯!
         }
-		
-		/*´¦Àí»®·ÖËÄ¸ö×ÓÆåÅÌµÄÓÒÏÂ·½ÄÇ¸öÆåÅÌ*/
+
+		/*å¤„ç†åˆ’åˆ†å››ä¸ªå­æ£‹ç›˜çš„å³ä¸‹æ–¹é‚£ä¸ªæ£‹ç›˜*/
         if (specialRow >= leftRow + subSize && specialCol >= leftCol + subSize) {
-            //±íÊ¾ÌØÊâ·½¸ñ´æÔÚÓÚ×ÓÆåÅÌµÄÓÒÏÂ½Ç
-            ChessBoard(specialRow, specialCol, leftRow + subSize, leftCol + subSize, subSize);    //±¾À´¾ÍÓĞÌØÊâ·½¸ñ£¬µİ¹éµ÷ÓÃ¿©!
+            //è¡¨ç¤ºç‰¹æ®Šæ–¹æ ¼å­˜åœ¨äºå­æ£‹ç›˜çš„å³ä¸‹è§’
+            ChessBoard(specialRow, specialCol, leftRow + subSize, leftCol + subSize, subSize);    //æœ¬æ¥å°±æœ‰ç‰¹æ®Šæ–¹æ ¼ï¼Œé€’å½’è°ƒç”¨å’¯!
         } else {
-            //Èç¹ûÌØÊâ·½¸ñ²»ÔÚ×ÓÆåÅÌµÄÓÒÏÂ½Ç£¬ÄÇÃ´±Ø¶¨±»»®·ÖÖ®ºóÒª²¹³äµÄÌØÊâ·½¸ñÔÚÓÒÏÂ½ÇÇøÓòÖĞµÄ×óÉÏ·½ÄÇ¸ö·½¸ñ
-            Board[leftRow + subSize][leftCol + subSize] = t;    //ÉèÖÃÎªtypeÀàĞÍµÄ¹ÇÅÆ(¼´Õâ¸ö×ÓÆåÅÌÒ²ÓĞÁËÌØÊâ·½¸ñ)
-            ChessBoard(leftRow + subSize, leftCol + subSize, leftRow + subSize, leftCol + subSize, subSize);    //ÓĞÁËÕâ¸öÌØÊâ·½¸ñÖ®ºó£¬µİ¹éµ÷ÓÃ¿©!
+            //å¦‚æœç‰¹æ®Šæ–¹æ ¼ä¸åœ¨å­æ£‹ç›˜çš„å³ä¸‹è§’ï¼Œé‚£ä¹ˆå¿…å®šè¢«åˆ’åˆ†ä¹‹åè¦è¡¥å……çš„ç‰¹æ®Šæ–¹æ ¼åœ¨å³ä¸‹è§’åŒºåŸŸä¸­çš„å·¦ä¸Šæ–¹é‚£ä¸ªæ–¹æ ¼
+            Board[leftRow + subSize][leftCol + subSize] = t;    //è®¾ç½®ä¸ºtypeç±»å‹çš„éª¨ç‰Œ(å³è¿™ä¸ªå­æ£‹ç›˜ä¹Ÿæœ‰äº†ç‰¹æ®Šæ–¹æ ¼)
+            ChessBoard(leftRow + subSize, leftCol + subSize, leftRow + subSize, leftCol + subSize, subSize);    //æœ‰äº†è¿™ä¸ªç‰¹æ®Šæ–¹æ ¼ä¹‹åï¼Œé€’å½’è°ƒç”¨å’¯!
         }
     }
 

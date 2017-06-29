@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @Description: [Çó½â×î½üµã¶ÔÎÊÌâ]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-2 ÉÏÎç9:57:22]
+ * @Description: [æ±‚è§£æœ€è¿‘ç‚¹å¯¹é—®é¢˜]
+ * @Author: [èƒ–è™Ž]
+ * @CreateDate: [2014-4-2 ä¸Šåˆ9:57:22]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 class Point {
@@ -41,16 +41,16 @@ public class PointMinDistanceProblem {
 
     public static void main(String[] args) {
         PointMinDistanceProblem p = new PointMinDistanceProblem();
-        //1. ÂùÁ¦·¨Çó½â£ºO(n^2)
+        //1. è›®åŠ›æ³•æ±‚è§£ï¼šO(n^2)
 //		double dis1 = p.getMinDistance1(points,0,points.length-1);
-//		System.out.println("Ö±½Ó±©Á¦: " + dis1);
+//		System.out.println("ç›´æŽ¥æš´åŠ›: " + dis1);
 
-        //2. ·ÖÖÎ·¨Çó½â
+        //2. åˆ†æ²»æ³•æ±‚è§£
         double dis2 = p.getMinDistance2(points);
-        System.out.println("·ÖÖÎ·¨Çó½â×î½üµã¶Ô¾àÀë: " + dis2 + " Point1:" + p.leftPoint + " Point2:" + p.rightPoint);
+        System.out.println("åˆ†æ²»æ³•æ±‚è§£æœ€è¿‘ç‚¹å¯¹è·ç¦»: " + dis2 + " Point1:" + p.leftPoint + " Point2:" + p.rightPoint);
     }
 
-    /*ÂùÁ¦·¨*/
+    /*è›®åŠ›æ³•*/
     public double getMinDistance1(Point[] points, int left, int right) {
 
         double minDistance = Double.MAX_VALUE;
@@ -74,14 +74,14 @@ public class PointMinDistanceProblem {
         }
     }
 
-    /*·ÖÖÎ·¨*/
+    /*åˆ†æ²»æ³•*/
     public double getMinDistance2(Point[] points) {
 
         int len = points.length;
         if (len == 1) {
             return Double.MAX_VALUE;
         }
-        /*¸ù¾ÝËùÓÐµãµÄxÖµ½øÐÐÅÅÐò*/
+        /*æ ¹æ®æ‰€æœ‰ç‚¹çš„xå€¼è¿›è¡ŒæŽ’åº*/
         Arrays.sort(points, new xcomparator());
         return getMinDistance(points, 0, len - 1);
     }
@@ -96,12 +96,12 @@ public class PointMinDistanceProblem {
             return getMinDistance1(points, left, right);
         }
 
-        //Çó³öÖÐ¼ä
+        //æ±‚å‡ºä¸­é—´
         int mid = (left + right) / 2;
         double leftMin = getMinDistance(points, left, mid);
         double rightMin = getMinDistance(points, mid + 1, right);
         double currentMin = leftMin > rightMin ? rightMin : leftMin;
-        //Çó³ö×ó±ß
+        //æ±‚å‡ºå·¦è¾¹
         int leftR = 0;
         int rightR = 0;
         for (int i = left; i < mid; ++i) {
@@ -122,7 +122,7 @@ public class PointMinDistanceProblem {
     }
 
 
-    /*ÇóÁ½µã¼äµÄ¾àÀë*/
+    /*æ±‚ä¸¤ç‚¹é—´çš„è·ç¦»*/
     public double getDistance(Point p1, Point p2) {
 
         return Math.sqrt(((p2.y - p1.y) * (p2.y - p1.y)) + ((p2.x - p1.x) * (p2.x - p1.x)));

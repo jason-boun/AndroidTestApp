@@ -6,15 +6,15 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * ÏêÏ¸×¢ÊÍ,·ÖÖÎ½â¾öÍ¹°üÎÊÌâ
+ * è¯¦ç»†æ³¨é‡Š,åˆ†æ²»è§£å†³å‡¸åŒ…é—®é¢˜
  *
- * @Description: [·ÖÖÎ+µİ¹é½â¾öÍ¹°üÎÊÌâ]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-2 ÏÂÎç1:59:36]
+ * @Description: [åˆ†æ²»+é€’å½’è§£å†³å‡¸åŒ…é—®é¢˜]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-2 ä¸‹åˆ1:59:36]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 
-/*Í¹°üÉÏµÄµã*/
+/*å‡¸åŒ…ä¸Šçš„ç‚¹*/
 class TuPoint {
     double x;
     double y;
@@ -31,7 +31,7 @@ class TuPoint {
 
 }
 
-/*Í¹°üÉÏµÄÁ½µãµÄÁ¬Ïß*/
+/*å‡¸åŒ…ä¸Šçš„ä¸¤ç‚¹çš„è¿çº¿*/
 class TuLine {
     TuPoint point1, point2;
 
@@ -40,7 +40,7 @@ class TuLine {
         this.point2 = point2;
     }
 
-    //Á½µãµÄ¾àÀë£¨ÏßµÄ³¤¶È£©
+    //ä¸¤ç‚¹çš„è·ç¦»ï¼ˆçº¿çš„é•¿åº¦ï¼‰
     public double getDistance() {
         double dx = point1.x - point2.x;
         double dy = point1.y - point2.y;
@@ -55,9 +55,9 @@ class TuLine {
 }
 
 public class TuBaoProblem {
-    //Òª´¦ÀíµÄµã¼¯ºÏ
+    //è¦å¤„ç†çš„ç‚¹é›†åˆ
     private List<TuPoint> pointList = null;
-    //µã¼¯pointList¶ÔÓ¦µÄÍ¹°ü½á¹û¡£
+    //ç‚¹é›†pointListå¯¹åº”çš„å‡¸åŒ…ç»“æœã€‚
     private List<TuLine> lineList = new ArrayList<TuLine>();
 
     public TuBaoProblem(List<TuPoint> pointList) {
@@ -65,59 +65,59 @@ public class TuBaoProblem {
         this.pointList = pointList;
     }
 
-    //Çó½âÍ¹°ü£¬²¢°Ñ½á¹û´æÈëµ½lineListÖĞ¡£
+    //æ±‚è§£å‡¸åŒ…ï¼Œå¹¶æŠŠç»“æœå­˜å…¥åˆ°lineListä¸­ã€‚
     public void solve() {
-        //³õÊ¼»¯£ºclear
+        //åˆå§‹åŒ–ï¼šclear
         lineList.clear();
         if (pointList == null | pointList.isEmpty())
             return;
-        /*×óÍ¹°üÖĞµÄµã¼¯ºÏ*/
+        /*å·¦å‡¸åŒ…ä¸­çš„ç‚¹é›†åˆ*/
         List<TuPoint> leftPointList = new ArrayList<TuPoint>();
-        /*ÓÒÍ¹°üÖĞµÄµã¼¯ºÏ*/
+        /*å³å‡¸åŒ…ä¸­çš„ç‚¹é›†åˆ*/
         List<TuPoint> rightPointList = new ArrayList<TuPoint>();
 
-		/*¸ù¾İpointµÄx×ø±êÀ´ÅÅĞò*/
+		/*æ ¹æ®pointçš„xåæ ‡æ¥æ’åº*/
         Collections.sort(pointList, new xcomparator());
 
-		/*ÕÒµ½x×îĞ¡µÄµã£¬¼´×î×ó±ßµÄµã*/
+		/*æ‰¾åˆ°xæœ€å°çš„ç‚¹ï¼Œå³æœ€å·¦è¾¹çš„ç‚¹*/
         TuPoint leftPoint = pointList.get(0);
 
-		/*ÕÒµ½x×î´óµÄµã£¬¼´×îÓÒ±ßµÄµã*/
+		/*æ‰¾åˆ°xæœ€å¤§çš„ç‚¹ï¼Œå³æœ€å³è¾¹çš„ç‚¹*/
         TuPoint rightPoint = pointList.get(pointList.size() - 1);
 
-		/*leftPoint ~~ rightPointµÄÁ¬Ïß°Ñ´óµÄÍ¹°üÎÊÌâ£¬·Ö½â³ÉÁ½¸öĞ¡µÄÍ¹°üÎÊÌâ*/
-        /*°Ñ×ÜµÄµã¼¯£¬·Ö³ÉÁ½°ë,¶ÔÓ¦·Åµ½leftPointList(×óÍ¹°üµã¼¯) »òÕß rightPointList(ÓÒÍ¹°üµã¼¯)*/
-        for (int i = 0; i < pointList.size(); i++) {// Çî¾ÙËùÓĞµÄµã,
+		/*leftPoint ~~ rightPointçš„è¿çº¿æŠŠå¤§çš„å‡¸åŒ…é—®é¢˜ï¼Œåˆ†è§£æˆä¸¤ä¸ªå°çš„å‡¸åŒ…é—®é¢˜*/
+        /*æŠŠæ€»çš„ç‚¹é›†ï¼Œåˆ†æˆä¸¤åŠ,å¯¹åº”æ”¾åˆ°leftPointList(å·¦å‡¸åŒ…ç‚¹é›†) æˆ–è€… rightPointList(å³å‡¸åŒ…ç‚¹é›†)*/
+        for (int i = 0; i < pointList.size(); i++) {// ç©·ä¸¾æ‰€æœ‰çš„ç‚¹,
             TuPoint tempPoint = pointList.get(i);
-            //ÅĞ¶ÏµãtempPointËùÔÚÇøÓòÎª×óÍ¹°ü»¹ÊÇÓÒÍ¹°ü
+            //åˆ¤æ–­ç‚¹tempPointæ‰€åœ¨åŒºåŸŸä¸ºå·¦å‡¸åŒ…è¿˜æ˜¯å³å‡¸åŒ…
             double result = findArea(leftPoint, rightPoint, tempPoint);
             if (result > 0) {
-                //tempPointÊôÓÚ×ó±ß
+                //tempPointå±äºå·¦è¾¹
                 leftPointList.add(tempPoint);
             } else if (result < 0) {
-                //tempPointÊôÓÚÓÒ±ß
+                //tempPointå±äºå³è¾¹
                 rightPointList.add(tempPoint);
             }
         }
 
-        //·Ö±ğÇó½â×óÓÒÁ½¸öÍ¹°ü
+        //åˆ†åˆ«æ±‚è§£å·¦å³ä¸¤ä¸ªå‡¸åŒ…
         dealTuBao(leftPoint, rightPoint, leftPointList);
         dealTuBao(rightPoint, leftPoint, rightPointList);
     }
 
     private void dealTuBao(TuPoint p1, TuPoint p2, List<TuPoint> subPointList) {
         if (subPointList.isEmpty()) {
-            /*µİ¹é½áÊøÌõ¼ş*/
-            //ÕâÁ½¸öµãËùÁ¬³ÉµÄÏß½«ÊÇ×îÖÕ½á¹ûÍ¹°üÉÏµÄÒ»Ìõ!
+            /*é€’å½’ç»“æŸæ¡ä»¶*/
+            //è¿™ä¸¤ä¸ªç‚¹æ‰€è¿æˆçš„çº¿å°†æ˜¯æœ€ç»ˆç»“æœå‡¸åŒ…ä¸Šçš„ä¸€æ¡!
             lineList.add(new TuLine(p1, p2));
             return;
         }
-        //subPointList²»Îª¿ÕµÄ»°£¬ÎÒÃÇÒªÈ¥ÕÒ²©ÎÄÖĞÍ¼Ê¾ÉÏĞ´µÄ Pmax µã
+        //subPointListä¸ä¸ºç©ºçš„è¯ï¼Œæˆ‘ä»¬è¦å»æ‰¾åšæ–‡ä¸­å›¾ç¤ºä¸Šå†™çš„ Pmax ç‚¹
 
         double maxArea = Double.MIN_VALUE;
         TuPoint pMax = null;
         for (int i = 0; i < subPointList.size(); i++) {
-            // ×î´óÃæ»ı¶ÔÓ¦µÄµã¾ÍÊÇPmax
+            // æœ€å¤§é¢ç§¯å¯¹åº”çš„ç‚¹å°±æ˜¯Pmax
             double area = findArea(p1, p2, subPointList.get(i));
             if (area > maxArea) {
                 pMax = subPointList.get(i);
@@ -125,41 +125,41 @@ public class TuBaoProblem {
             }
         }
 
-		/*ÏÂÃæµÄ´¦Àí¸úÖ®Ç°solve()º¯ÊıÖĞµÄ´¦ÀíÒ»Ñù*/
+		/*ä¸‹é¢çš„å¤„ç†è·Ÿä¹‹å‰solve()å‡½æ•°ä¸­çš„å¤„ç†ä¸€æ ·*/
 
-        // ÕÒ³öÎ»ÓÚ(p1, pMax)Ö±Ïß×ó±ßµÄµã¼¯s1
-        // ÕÒ³öÎ»ÓÚ(pMax, p2)Ö±ÏßÓÒ±ßµÄµã¼¯s2
-		/*×óÍ¹°üÖĞµÄµã¼¯ºÏ*/
+        // æ‰¾å‡ºä½äº(p1, pMax)ç›´çº¿å·¦è¾¹çš„ç‚¹é›†s1
+        // æ‰¾å‡ºä½äº(pMax, p2)ç›´çº¿å³è¾¹çš„ç‚¹é›†s2
+		/*å·¦å‡¸åŒ…ä¸­çš„ç‚¹é›†åˆ*/
         List<TuPoint> leftPointList = new ArrayList<TuPoint>();
-		/*ÓÒÍ¹°üÖĞµÄµã¼¯ºÏ*/
+		/*å³å‡¸åŒ…ä¸­çš„ç‚¹é›†åˆ*/
         List<TuPoint> rightPointList = new ArrayList<TuPoint>();
 		
-		/*°Ñµã¼¯subPointList£¬·Ö³ÉÁ½°ë,¶ÔÓ¦·Åµ½leftPointList(×óÍ¹°üµã¼¯) 
-		 * »òÕß rightPointList(ÓÒÍ¹°üµã¼¯)*/
-        for (int i = 1; i < subPointList.size(); i++) {// Çî¾ÙËùÓĞµÄµã,
+		/*æŠŠç‚¹é›†subPointListï¼Œåˆ†æˆä¸¤åŠ,å¯¹åº”æ”¾åˆ°leftPointList(å·¦å‡¸åŒ…ç‚¹é›†) 
+		 * æˆ–è€… rightPointList(å³å‡¸åŒ…ç‚¹é›†)*/
+        for (int i = 1; i < subPointList.size(); i++) {// ç©·ä¸¾æ‰€æœ‰çš„ç‚¹,
             TuPoint tempPoint = subPointList.get(i);
-            //ÅĞ¶ÏµãtempPointËùÔÚÇøÓòÎª×óÍ¹°ü»¹ÊÇÓÒÍ¹°ü
-			/*Ïß: p1 ~ pMax*/
+            //åˆ¤æ–­ç‚¹tempPointæ‰€åœ¨åŒºåŸŸä¸ºå·¦å‡¸åŒ…è¿˜æ˜¯å³å‡¸åŒ…
+			/*çº¿: p1 ~ pMax*/
             double result1 = findArea(p1, pMax, tempPoint);
-			/*Ïß: p2 ~ pMax*/
+			/*çº¿: p2 ~ pMax*/
             double result2 = findArea(pMax, p2, tempPoint);
             if (result1 > 0) {
-                //tempPointÊôÓÚ×ó±ß
+                //tempPointå±äºå·¦è¾¹
                 leftPointList.add(tempPoint);
             } else if (result2 > 0) {
-                //tempPointÊôÓÚÓÒ±ß
+                //tempPointå±äºå³è¾¹
                 rightPointList.add(tempPoint);
             }
         }
-        //µİ¹éµ÷ÓÃ¿©~~
+        //é€’å½’è°ƒç”¨å’¯~~
         dealTuBao(p1, pMax, leftPointList);
         dealTuBao(pMax, p2, rightPointList);
     }
 
-    /* º¯ÊıµÄ¹¦ÄÜ: 1. ÅĞ¶ÏµãÔÚ×ÓÍ¹°üµÄ×ó±ß»òÕßÓÒ±ß  2.ÓÃÀ´ËãÈı½ÇĞÎµÄÃæ»ı£¬À´ÕÒµ½Pmaxµã
-     * Èı½ÇĞÎµÄÃæ»ıµÈÓÚ·µ»ØÖµ¾ø¶ÔÖµµÄ¶ş·ÖÖ®Ò»
-     * µãp3Î»ÓÚÖ±Ïß(p1, p2)×ó²àÊ±£¬±í´ïÊ½µÄ½á¹ûÎªÕı
-     * µãp3Î»ÓÚÖ±Ïß(p1, p2)ÓÒ²àÊ±£¬±í´ïÊ½µÄ½á¹ûÎª¸º
+    /* å‡½æ•°çš„åŠŸèƒ½: 1. åˆ¤æ–­ç‚¹åœ¨å­å‡¸åŒ…çš„å·¦è¾¹æˆ–è€…å³è¾¹  2.ç”¨æ¥ç®—ä¸‰è§’å½¢çš„é¢ç§¯ï¼Œæ¥æ‰¾åˆ°Pmaxç‚¹
+     * ä¸‰è§’å½¢çš„é¢ç§¯ç­‰äºè¿”å›å€¼ç»å¯¹å€¼çš„äºŒåˆ†ä¹‹ä¸€
+     * ç‚¹p3ä½äºç›´çº¿(p1, p2)å·¦ä¾§æ—¶ï¼Œè¡¨è¾¾å¼çš„ç»“æœä¸ºæ­£
+     * ç‚¹p3ä½äºç›´çº¿(p1, p2)å³ä¾§æ—¶ï¼Œè¡¨è¾¾å¼çš„ç»“æœä¸ºè´Ÿ
      * */
     private double findArea(TuPoint p1, TuPoint p2, TuPoint p3) {
         return p1.x * p2.y + p3.x * p1.y + p2.x * p3.y - p3.x * p2.y - p2.x
@@ -182,14 +182,14 @@ public class TuBaoProblem {
         t.printResult();
     }
 
-    /*Êä³ö½á¹û*/
+    /*è¾“å‡ºç»“æœ*/
     public void printResult() {
         for (Object i : lineList.toArray()) {
             System.out.println(i);
         }
     }
 
-    /*x±È½ÏÆ÷*/
+    /*xæ¯”è¾ƒå™¨*/
     class xcomparator implements Comparator<TuPoint> {
 
         public int compare(TuPoint p1, TuPoint p2) {

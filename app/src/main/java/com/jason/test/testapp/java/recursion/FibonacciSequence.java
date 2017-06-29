@@ -1,26 +1,26 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * ps: Ö»Îª½²½âµİ¹é,ËùÒÔ²¢²»ÊÇ×îÓÅµÄËã·¨£¬ÍûÅ£Å£ÃÇÎğÅç!
+ * ps: åªä¸ºè®²è§£é€’å½’,æ‰€ä»¥å¹¶ä¸æ˜¯æœ€ä¼˜çš„ç®—æ³•ï¼Œæœ›ç‰›ç‰›ä»¬å‹¿å–·!
  *
- * @Description: [µİ¹é·½Ê½Çó½âì³²¨ÄÇÆõÊıÁĞ]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-3-31 ÏÂÎç11:04:29]
+ * @Description: [é€’å½’æ–¹å¼æ±‚è§£æ–æ³¢é‚£å¥‘æ•°åˆ—]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-3-31 ä¸‹åˆ11:04:29]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 public class FibonacciSequence {
 
     public static int fibonacci(int n) {
-        /*µİ¹é½áÊøÌõ¼ş*/
+        /*é€’å½’ç»“æŸæ¡ä»¶*/
         if (n == 0)
             return 0;
         if (n == 1)
             return 1;
-        /*µİ¹éµ÷ÓÃ*/
+        /*é€’å½’è°ƒç”¨*/
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
     public static void main(String[] args) {
-        System.out.println(FibonacciSequence.fibonacci(6));
+        System.out.println(FibonacciSequence.fibonacci(7));
     }
 }

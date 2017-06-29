@@ -1,18 +1,18 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [µİ¹é·½Ê½×ö¶ş²æÊ÷µÄÈıÖÖ±éÀú]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-1 ÉÏÎç12:29:35]
+ * @Description: [é€’å½’æ–¹å¼åšäºŒå‰æ ‘çš„ä¸‰ç§éå†]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-1 ä¸Šåˆ12:29:35]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  * <p>
  * <p>
- * Êä³ö½á¹û£º
- * Ç°Ğò±éÀú£º
+ * è¾“å‡ºç»“æœï¼š
+ * å‰åºéå†ï¼š
  * 0 1 3 7 8 4 2 5 6
- * ÖĞĞò±éÀú£º
+ * ä¸­åºéå†ï¼š
  * 7 3 8 1 4 0 5 2 6
- * ºóĞò±éÀú£º
+ * ååºéå†ï¼š
  * 7 8 3 4 1 5 6 2 0
  */
 class TreeNode {
@@ -27,39 +27,39 @@ class TreeNode {
 
 public class BinaryTreeTraversal {
     public static void PreOrderTraversal(TreeNode root) {
-        /*µİ¹é½áÊøÌõ¼ş*/
+        /*é€’å½’ç»“æŸæ¡ä»¶*/
         if (root == null)
             return;
         System.out.print(root.val + " ");
-        /*µİ¹éµ÷ÓÃ*/
+        /*é€’å½’è°ƒç”¨*/
         PreOrderTraversal(root.left);
         PreOrderTraversal(root.right);
     }
 
     public static void InOrderTraversal(TreeNode root) {
-        /*µİ¹é½áÊøÌõ¼ş*/
+        /*é€’å½’ç»“æŸæ¡ä»¶*/
         if (root == null)
             return;
 
-		/*µİ¹éµ÷ÓÃ*/
+		/*é€’å½’è°ƒç”¨*/
         InOrderTraversal(root.left);
         System.out.print(root.val + " ");
         InOrderTraversal(root.right);
     }
 
     public static void PostOrderTraversal(TreeNode root) {
-		/*µİ¹é½áÊøÌõ¼ş*/
+		/*é€’å½’ç»“æŸæ¡ä»¶*/
         if (root == null)
             return;
 		
-		/*µİ¹éµ÷ÓÃ*/
+		/*é€’å½’è°ƒç”¨*/
         PostOrderTraversal(root.left);
         PostOrderTraversal(root.right);
         System.out.print(root.val + " ");
     }
 
     public static void main(String[] args) {
-        //³õÊ¼»¯Ò»¿Ã¶ş²æÊ÷, ²»Ó°Ïìµİ¹éµÄË¼Ïë£¬¿ÉºöÂÔ
+        //åˆå§‹åŒ–ä¸€æ£µäºŒå‰æ ‘, ä¸å½±å“é€’å½’çš„æ€æƒ³ï¼Œå¯å¿½ç•¥
         TreeNode[] nodes = new TreeNode[9];
         for (int i = 8; i >= 0; --i) {
             nodes[i] = new TreeNode(i);
@@ -75,11 +75,11 @@ public class BinaryTreeTraversal {
                 }
             }
         }
-        System.out.println("Ç°Ğò±éÀú£º");
+        System.out.println("å‰åºéå†ï¼š");
         PreOrderTraversal(nodes[0]);
-        System.out.println("\nÖĞĞò±éÀú£º");
+        System.out.println("\nä¸­åºéå†ï¼š");
         InOrderTraversal(nodes[0]);
-        System.out.println("\nºóĞò±éÀú£º");
+        System.out.println("\nååºéå†ï¼š");
         PostOrderTraversal(nodes[0]);
     }
 }

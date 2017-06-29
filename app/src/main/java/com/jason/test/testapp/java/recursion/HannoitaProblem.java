@@ -1,19 +1,19 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [µİ¹é·½Ê½Çó½âººÅµËşÎÊÌâ]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-1 ÉÏÎç12:16:59]
+ * @Description: [é€’å½’æ–¹å¼æ±‚è§£æ±‰è¯ºå¡”é—®é¢˜]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-1 ä¸Šåˆ12:16:59]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 public class HannoitaProblem {
 
     public static void Hannoita(int n, char A, char B, char C) {
-        /*µİ¹é½áÊøÌõ¼ş*/
+        /*é€’å½’ç»“æŸæ¡ä»¶*/
         if (n == 1) {
             System.out.println("n=" + n + " " + A + "-->" + C);
         } else {
-            /*µİ¹éµÄµ÷ÓÃ*/
+            /*é€’å½’çš„è°ƒç”¨*/
             Hannoita(n - 1, A, C, B);
             System.out.println("n=" + n + " " + A + "-->" + C);
             Hannoita(n - 1, B, A, C);

@@ -5,26 +5,26 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @Description: [Í¼±éÀúËã·¨£¨Ö÷ÒªÊÇDFS£©ÖĞµÄµİ¹éËã·¨]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-1 ÏÂÎç5:58:33]
+ * @Description: [å›¾éå†ç®—æ³•ï¼ˆä¸»è¦æ˜¯DFSï¼‰ä¸­çš„é€’å½’ç®—æ³•]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-1 ä¸‹åˆ5:58:33]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  * <p>
  * <p>
- * ÊäÈë£º graphÎª²©ÎÄÖĞ Í¼Èı Ê¾ÀıµÄÓĞÏòÍ¼µÄÁÚ½Ó¾ØÕó
- * Êä³ö£º
- * Í¼µÄÉî¶È±éÀú
- * A¶¥µã(V0)±»·ÃÎÊÁË£¡
- * B¶¥µã(V1)±»·ÃÎÊÁË£¡
- * E¶¥µã(V4)±»·ÃÎÊÁË£¡
- * D¶¥µã(V3)±»·ÃÎÊÁË£¡
- * C¶¥µã(V2)±»·ÃÎÊÁË£¡
- * Í¼µÄ¹ã¶È±éÀú
- * A¶¥µã(V0)±»·ÃÎÊÁË£¡
- * B¶¥µã(V1)±»·ÃÎÊÁË£¡
- * D¶¥µã(V3)±»·ÃÎÊÁË£¡
- * E¶¥µã(V4)±»·ÃÎÊÁË£¡
- * C¶¥µã(V2)±»·ÃÎÊÁË£¡
+ * è¾“å…¥ï¼š graphä¸ºåšæ–‡ä¸­ å›¾ä¸‰ ç¤ºä¾‹çš„æœ‰å‘å›¾çš„é‚»æ¥çŸ©é˜µ
+ * è¾“å‡ºï¼š
+ * å›¾çš„æ·±åº¦éå†
+ * Aé¡¶ç‚¹(V0)è¢«è®¿é—®äº†ï¼
+ * Bé¡¶ç‚¹(V1)è¢«è®¿é—®äº†ï¼
+ * Eé¡¶ç‚¹(V4)è¢«è®¿é—®äº†ï¼
+ * Dé¡¶ç‚¹(V3)è¢«è®¿é—®äº†ï¼
+ * Cé¡¶ç‚¹(V2)è¢«è®¿é—®äº†ï¼
+ * å›¾çš„å¹¿åº¦éå†
+ * Aé¡¶ç‚¹(V0)è¢«è®¿é—®äº†ï¼
+ * Bé¡¶ç‚¹(V1)è¢«è®¿é—®äº†ï¼
+ * Dé¡¶ç‚¹(V3)è¢«è®¿é—®äº†ï¼
+ * Eé¡¶ç‚¹(V4)è¢«è®¿é—®äº†ï¼
+ * Cé¡¶ç‚¹(V2)è¢«è®¿é—®äº†ï¼
  */
 
 
@@ -45,10 +45,10 @@ public class GraphTraversal {
 
     public static void main(String[] args) {
 
-		/*Í¼µÄ³õÊ¼»¯: ÎÒÃÇÑ¡È¡Ò»¸ö²©ÎÄÖĞÍ¼3ÖĞµÄÓĞÏòÍ¼×öÀı×Ó*/
+		/*å›¾çš„åˆå§‹åŒ–: æˆ‘ä»¬é€‰å–ä¸€ä¸ªåšæ–‡ä¸­å›¾3ä¸­çš„æœ‰å‘å›¾åšä¾‹å­*/
         String[] vexs = new String[5];
         for (int i = 0; i < 5; ++i) {
-            vexs[i] = (char) ('A' + i) + "¶¥µã(V" + i + ")";
+            vexs[i] = (char) ('A' + i) + "é¡¶ç‚¹(V" + i + ")";
         }
         int[][] edges = new int[][]{
                 {0, 1, 0, 1, 0},
@@ -59,25 +59,25 @@ public class GraphTraversal {
         };
         Graph graph = new Graph(vexs, edges);
 
-		/*Í¼µÄÉî¶È±éÀú(µİ¹é)*/
-        System.out.println("Í¼µÄÉî¶È±éÀú");
+		/*å›¾çš„æ·±åº¦éå†(é€’å½’)*/
+        System.out.println("å›¾çš„æ·±åº¦éå†");
         DFSTraversal(graph);
 
 		
-		/*Í¼µÄ¹ã¶È±éÀú(ÎŞ¹Øµİ¹é,µ«¾ÓÈ»Éæ¼°µ½Í¼±éÀú¾ÍÒ²Ğ´ÏÂ)*/
-        System.out.println("Í¼µÄ¹ã¶È±éÀú");
+		/*å›¾çš„å¹¿åº¦éå†(æ— å…³é€’å½’,ä½†å±…ç„¶æ¶‰åŠåˆ°å›¾éå†å°±ä¹Ÿå†™ä¸‹)*/
+        System.out.println("å›¾çš„å¹¿åº¦éå†");
         BFSTraversal(graph);
 
     }
 
     public static void DFSTraversal(Graph graph) {
-        /*³õÊ¼»¯visited[]Êı×é*/
+        /*åˆå§‹åŒ–visited[]æ•°ç»„*/
         boolean[] visited = new boolean[graph.VexsLen];
         for (int i = 0; i < graph.VexsLen; ++i) {
             visited[i] = false;
         }
 		
-		/*Éî¶È±éÀú*/
+		/*æ·±åº¦éå†*/
         for (int i = 0; i < graph.VexsLen; ++i) {
             if (!visited[i]) {
                 DFS(graph, i, visited);
@@ -86,16 +86,16 @@ public class GraphTraversal {
     }
 
     /**
-     * @param graph Í¼¶ÔÏó
-     * @param i     Òª·ÃÎÊµÄ¶¥µãÏÂ±êi
+     * @param graph å›¾å¯¹è±¡
+     * @param i     è¦è®¿é—®çš„é¡¶ç‚¹ä¸‹æ ‡i
      */
     public static void DFS(Graph graph, int i, boolean[] visited) {
-		/*·ÃÎÊ¸Ã¶¥µã*/
+		/*è®¿é—®è¯¥é¡¶ç‚¹*/
         visitedMethod(graph, i);
-		/*ÉèÖÃ³ÉÒÑ·ÃÎÊ*/
+		/*è®¾ç½®æˆå·²è®¿é—®*/
         visited[i] = true;
         for (int k = 0; k < graph.VexsLen; ++k) {
-			/*Ñ°ÕÒ»¹Ã»ÓĞ±»·ÃÎÊ¹ıµÄÁÚ½Óµã*/
+			/*å¯»æ‰¾è¿˜æ²¡æœ‰è¢«è®¿é—®è¿‡çš„é‚»æ¥ç‚¹*/
             if (graph.Edges[i][k] == 1 && !visited[k]) {
                 DFS(graph, k, visited);
             }
@@ -104,13 +104,13 @@ public class GraphTraversal {
     }
 
     public static void BFSTraversal(Graph graph) {
-		/*³õÊ¼»¯visited[]Êı×é*/
+		/*åˆå§‹åŒ–visited[]æ•°ç»„*/
         boolean[] visited = new boolean[graph.VexsLen];
         for (int i = 0; i < graph.VexsLen; ++i) {
             visited[i] = false;
         }
 		
-		/*¹ã¶È±éÀú,Ñ°ÕÒÔ´µã*/
+		/*å¹¿åº¦éå†,å¯»æ‰¾æºç‚¹*/
         for (int i = 0; i < graph.VexsLen; ++i) {
             if (!visited[i]) {
                 BFS(graph, i, visited);
@@ -122,16 +122,16 @@ public class GraphTraversal {
         if (graph.VexsLen < 0)
             return;
         Queue<Integer> queue = new LinkedList<Integer>();
-        queue.add(i);    //°ÑÔ´µãµÄÏÂ±êi¼ÓÈëµ½¶ÓÁĞÖĞ
+        queue.add(i);    //æŠŠæºç‚¹çš„ä¸‹æ ‡iåŠ å…¥åˆ°é˜Ÿåˆ—ä¸­
 
         while (!queue.isEmpty()) {
             int index = queue.remove();
             visitedMethod(graph, index);
-            visited[index] = true;    //ÉèÖÃÏÂ±êindexµÄ¶¥µãÎªÒÑ·ÃÎÊ¹ı
+            visited[index] = true;    //è®¾ç½®ä¸‹æ ‡indexçš„é¡¶ç‚¹ä¸ºå·²è®¿é—®è¿‡
             for (int k = 0; k < graph.VexsLen; ++k) {
-				/*Ñ°ÕÒ»¹Ã»ÓĞ±»·ÃÎÊ¹ıµÄÁÚ½Óµã*/
+				/*å¯»æ‰¾è¿˜æ²¡æœ‰è¢«è®¿é—®è¿‡çš„é‚»æ¥ç‚¹*/
                 if (graph.Edges[index][k] == 1 && !visited[k]) {
-                    queue.add(k);    //¸Ã¶¥µãÏÂ±ê¼ÓÈëµ½¶ÓÁĞÖĞ
+                    queue.add(k);    //è¯¥é¡¶ç‚¹ä¸‹æ ‡åŠ å…¥åˆ°é˜Ÿåˆ—ä¸­
                 }
             }
         }
@@ -140,6 +140,6 @@ public class GraphTraversal {
 
 
     public static void visitedMethod(Graph graph, int i) {
-        System.out.println(graph.Vexs[i] + "±»·ÃÎÊÁË£¡");
+        System.out.println(graph.Vexs[i] + "è¢«è®¿é—®äº†ï¼");
     }
 }

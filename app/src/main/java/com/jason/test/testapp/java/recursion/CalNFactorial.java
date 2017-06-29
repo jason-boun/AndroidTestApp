@@ -1,18 +1,18 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [递归求N阶乘]
- * @Author: [胖虎]
- * @CreateDate: [2014-3-31 下午9:36:20]
+ * @Description: [閫掑綊姹侼闃朵箻]
+ * @Author: [鑳栬檸]
+ * @CreateDate: [2014-3-31 涓嬪崍9:36:20]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 public class CalNFactorial {
     public static int f(int n) {
-        /*递归结束条件*/
+        /*閫掑綊缁撴潫鏉′欢*/
         if (n == 1) {
             return 1;
         }
-        /*递归调用*/
+        /*閫掑綊璋冪敤*/
         return n * f(n - 1);
     }
 

@@ -1,22 +1,22 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [Strassen¾ØÕó³Ë·¨]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-2 ÉÏÎç9:13:16]
+ * @Description: [StrassençŸ©é˜µä¹˜æ³•]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-2 ä¸Šåˆ9:13:16]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  * <p>
- * ÊäÈëµÄ¾ØÕó£ºA
+ * è¾“å…¥çš„çŸ©é˜µï¼šA
  * 1	2	3	4
  * 2	4	6	8
  * 3	6	9	12
  * 4	8	12	16
- * ÊäÈëµÄ¾ØÕó£ºB
+ * è¾“å…¥çš„çŸ©é˜µï¼šB
  * 1	2	3	4
  * 2	4	6	8
  * 3	6	9	12
  * 4	8	12	16
- * Êä³öµÄ¾ØÕó£ºC
+ * è¾“å‡ºçš„çŸ©é˜µï¼šC
  * 30	60	90	120
  * 60	120	180	240
  * 90	180	270	360
@@ -31,13 +31,13 @@ public class StrassenProblem {
     }
 
     /**
-     * @param N ¾ØÕóµÄ¹æÄ£
-     * @param A ¾ØÕóA
-     * @param B ¾ØÕóB
-     * @param C ½á¹û¾ØÕóC
+     * @param N çŸ©é˜µçš„è§„æ¨¡
+     * @param A çŸ©é˜µA
+     * @param B çŸ©é˜µB
+     * @param C ç»“æœçŸ©é˜µC
      */
     private void strassen(int N, int[][] A, int[][] B, int[][] C) {
-        //¶¨ÒåÒ»Ğ©ÖĞ¼ä±äÁ¿
+        //å®šä¹‰ä¸€äº›ä¸­é—´å˜é‡
         int[][] M1 = new int[N][N];
         int[][] M2 = new int[N][N];
         int[][] M3 = new int[N][N];
@@ -66,11 +66,11 @@ public class StrassenProblem {
 
 		
 		
-		/*µİ¹é½áÊøÌõ¼ş£º Èç¹û¾ØÕóÎª2*2¹æÄ£µÄ£¬Ö±½ÓËã£¡*/
+		/*é€’å½’ç»“æŸæ¡ä»¶ï¼š å¦‚æœçŸ©é˜µä¸º2*2è§„æ¨¡çš„ï¼Œç›´æ¥ç®—ï¼*/
         if (A.length == 2) {
             MatrixMul(A, B, C);
         } else {
-            //Ê×ÏÈ½«¾ØÕóA£¬B ·ÖÎª4¿é
+            //é¦–å…ˆå°†çŸ©é˜µAï¼ŒB åˆ†ä¸º4å—
             for (int i = 0; i < A.length / 2; i++) {
                 for (int j = 0; j < A.length / 2; j++) {
                     A11[i][j] = A[i][j];
@@ -83,13 +83,13 @@ public class StrassenProblem {
                     B22[i][j] = B[i + A.length / 2][j + A.length / 2];
                 }
             }
-            //¼ÆËãM1
+            //è®¡ç®—M1
             MatrixSub(B12, B22, temp);
             MatrixMul(A11, temp, M1);
-            //¼ÆËãM2
+            //è®¡ç®—M2
             MatrixAdd(A11, A12, temp);
             MatrixMul(temp, B22, M2);
-            //¼ÆËãM3
+            //è®¡ç®—M3
             MatrixAdd(A21, A22, temp);
             MatrixMul(temp, B11, M3);
             //M4
@@ -108,11 +108,11 @@ public class StrassenProblem {
             MatrixAdd(B11, B12, temp);
             MatrixMul(temp1, temp, M7);
 
-            //¼ÆËãC11
+            //è®¡ç®—C11
             MatrixAdd(M5, M4, temp1);
             MatrixSub(temp1, M2, temp);
             MatrixAdd(temp, M6, C11);
-            //¼ÆËãC12
+            //è®¡ç®—C12
             MatrixAdd(M1, M2, C12);
             //C21
             MatrixAdd(M3, M4, C21);
@@ -121,7 +121,7 @@ public class StrassenProblem {
             MatrixSub(temp1, M3, temp);
             MatrixSub(temp, M7, C22);
 
-            //½á¹ûËÍ»ØCÖĞ
+            //ç»“æœé€å›Cä¸­
             for (int i = 0; i < C.length / 2; i++) {
                 for (int j = 0; j < C.length / 2; j++) {
                     C[i][j] = C11[i][j];
@@ -134,7 +134,7 @@ public class StrassenProblem {
     }
 
     /**
-     * ¾ØÕó³Ë·¨£¬´Ë´¦Ö»ÊÇ¶¨ÒåÁË2*2¾ØÕóµÄ³Ë·¨
+     * çŸ©é˜µä¹˜æ³•ï¼Œæ­¤å¤„åªæ˜¯å®šä¹‰äº†2*2çŸ©é˜µçš„ä¹˜æ³•
      */
     public void MatrixMul(int[][] first, int[][] second, int[][] resault) {
         for (int i = 0; i < 2; ++i) {
@@ -149,7 +149,7 @@ public class StrassenProblem {
     }
 
     /**
-     * ¾ØÕóµÄ¼Ó·¨ÔËËã
+     * çŸ©é˜µçš„åŠ æ³•è¿ç®—
      */
     public void MatrixAdd(int[][] first, int[][] second, int[][] resault) {
         for (int i = 0; i < first.length; i++) {
@@ -160,7 +160,7 @@ public class StrassenProblem {
     }
 
     /**
-     * ¾ØÕóµÄ¼õ·¨ÔËËã
+     * çŸ©é˜µçš„å‡æ³•è¿ç®—
      */
     public void MatrixSub(int[][] first, int[][] second, int[][] resault) {
         for (int i = 0; i < first.length; i++) {
@@ -171,11 +171,11 @@ public class StrassenProblem {
     }
 
     public static void main(String[] args) {
-        int N = 4;    //¾ØÕóµÄ´óĞ¡
+        int N = 4;    //çŸ©é˜µçš„å¤§å°
         int[][] A = new int[N][N];
         int[][] B = new int[N][N];
         int[][] C = new int[N][N];
-        /*A, B¾ØÕóµÄ³õÊ¼»¯,¾ßÌåÖµÎŞËùÎ½¹ş£¡Ò²¿ÉÒÔ×Ô¼ºÂ¼Èë*/
+        /*A, BçŸ©é˜µçš„åˆå§‹åŒ–,å…·ä½“å€¼æ— æ‰€è°“å“ˆï¼ä¹Ÿå¯ä»¥è‡ªå·±å½•å…¥*/
         for (int i = 0; i < N; ++i) {
             for (int j = 0; j < N; ++j) {
                 A[i][j] = (i + 1) * (j + 1);
@@ -183,13 +183,13 @@ public class StrassenProblem {
             }
         }
 
-        System.out.println("ÊäÈëµÄ¾ØÕó£ºA");
+        System.out.println("è¾“å…¥çš„çŸ©é˜µï¼šA");
         printfMatrix(A);
-        System.out.println("ÊäÈëµÄ¾ØÕó£ºB");
+        System.out.println("è¾“å…¥çš„çŸ©é˜µï¼šB");
         printfMatrix(B);
         StrassenProblem strassenProblem = new StrassenProblem();
         strassenProblem.solve(N, A, B, C);
-        System.out.println("Êä³öµÄ¾ØÕó£ºC");
+        System.out.println("è¾“å‡ºçš„çŸ©é˜µï¼šC");
         printfMatrix(C);
     }
 

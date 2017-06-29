@@ -1,15 +1,15 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [折半查找中使用到的递归和分治思想, O(logN)]
- * @Author: [胖虎]
- * @CreateDate: [2014-4-1 上午1:24:01]
+ * @Description: [鎶樺崐鏌ユ壘涓娇鐢ㄥ埌鐨勯�掑綊鍜屽垎娌绘�濇兂, O(logN)]
+ * @Author: [鑳栬檸]
+ * @CreateDate: [2014-4-1 涓婂崍1:24:01]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 public class BinarySearch {
 
     public static boolean IsExist(int[] arrays, int key, int left, int right) {
-        /*递归结束条件*/
+        /*閫掑綊缁撴潫鏉′欢*/
         if (left == right) {
             if (arrays[left] == key) {
                 return true;
@@ -17,7 +17,7 @@ public class BinarySearch {
                 return false;
             }
         }
-        /*递归调用*/
+        /*閫掑綊璋冪敤*/
         int middle = (right + left) / 2;
         if (arrays[middle] > key) {
             return IsExist(arrays, key, left, middle - 1);

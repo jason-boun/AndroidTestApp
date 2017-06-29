@@ -1,19 +1,19 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [递归求解gcd欧几里德算法]
- * @Author: [胖虎]
- * @CreateDate: [2014-3-31 下午10:51:47]
+ * @Description: [閫掑綊姹傝Вgcd娆у嚑閲屽痉绠楁硶]
+ * @Author: [鑳栬檸]
+ * @CreateDate: [2014-3-31 涓嬪崍10:51:47]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 public class Gcd {
 
     public static int gcd(int m, int n) {
-        /*递归终结条件*/
+        /*閫掑綊缁堢粨鏉′欢*/
         if (n == 0) {
             return m;
         }
-        /*递归调用*/
+        /*閫掑綊璋冪敤*/
         return gcd(n, m % n);
     }
 

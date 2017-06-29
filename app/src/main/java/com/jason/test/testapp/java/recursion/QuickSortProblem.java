@@ -1,13 +1,13 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [Õ¹Ê¾¿ìËÙÅÅĞòÖĞµÄµİ¹éËã·¨ + ·ÖÖÎË¼Ïë]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-1 ÉÏÎç12:46:14]
+ * @Description: [å±•ç¤ºå¿«é€Ÿæ’åºä¸­çš„é€’å½’ç®—æ³• + åˆ†æ²»æ€æƒ³]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-1 ä¸Šåˆ12:46:14]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  * <p>
- * ´ıÅÅĞòÁĞ£º{7,-1,10,2,0,9,11,3,4}
- * Êä³öÅÅĞò½á¹û£º{-1,0,2,3,4,7,9,10,11}
+ * å¾…æ’åºåˆ—ï¼š{7,-1,10,2,0,9,11,3,4}
+ * è¾“å‡ºæ’åºç»“æœï¼š{-1,0,2,3,4,7,9,10,11}
  */
 public class QuickSortProblem {
 
@@ -16,7 +16,7 @@ public class QuickSortProblem {
             return left;
         int key = arrays[left];
         while (left < right) {
-            //´ÓºóÍùÇ°ËÑË÷±ÈkeyĞ¡µÄÔªËØ,ÌîÈëarrays[i]µÄÎ»ÖÃÖĞ£¬²¢Ìø³öÑ­»·
+            //ä»åå¾€å‰æœç´¢æ¯”keyå°çš„å…ƒç´ ,å¡«å…¥arrays[i]çš„ä½ç½®ä¸­ï¼Œå¹¶è·³å‡ºå¾ªç¯
             while (left < right) {
                 if (arrays[right] < key) {
                     arrays[left] = arrays[right];
@@ -32,8 +32,8 @@ public class QuickSortProblem {
                 left++;
             }
         }
-        arrays[left] = key;    //×îÖÕÈ¡³öÀ´µÄÕâ¸ö±È½ÏÊıµÄÎ»ÖÃ
-        //´ËÊ±middle = left = right
+        arrays[left] = key;    //æœ€ç»ˆå–å‡ºæ¥çš„è¿™ä¸ªæ¯”è¾ƒæ•°çš„ä½ç½®
+        //æ­¤æ—¶middle = left = right
         return left;
     }
 

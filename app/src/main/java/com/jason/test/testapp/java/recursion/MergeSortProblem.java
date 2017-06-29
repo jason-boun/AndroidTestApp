@@ -1,13 +1,13 @@
 package com.jason.test.testapp.java.recursion;
 
 /**
- * @Description: [¹é²¢ÅÅĞò:ÌåÏÖµİ¹éºÍ·ÖÖÎ]
- * @Author: [ÅÖ»¢]
- * @CreateDate: [2014-4-1 ÏÂÎç9:18:42]
+ * @Description: [å½’å¹¶æ’åº:ä½“ç°é€’å½’å’Œåˆ†æ²»]
+ * @Author: [èƒ–è™]
+ * @CreateDate: [2014-4-1 ä¸‹åˆ9:18:42]
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  * <p>
- * ÊäÈë£º ¹é²¢ÅÅĞòÇ°µÄĞòÁĞ {-7,1,0,10,9,-20,100,8,1}
- * Êä³ö£º ¹é²¢ÅÅĞòºóµÄĞòÁĞ {-20,-7,0,1,1,8,9,10,100}
+ * è¾“å…¥ï¼š å½’å¹¶æ’åºå‰çš„åºåˆ— {-7,1,0,10,9,-20,100,8,1}
+ * è¾“å‡ºï¼š å½’å¹¶æ’åºåçš„åºåˆ— {-20,-7,0,1,1,8,9,10,100}
  */
 public class MergeSortProblem {
 
@@ -25,26 +25,26 @@ public class MergeSortProblem {
 
         Sort(arrays, left, right);
 
-        System.out.println("¹é²¢ÅÅĞòºóµÄĞòÁĞ");
+        System.out.println("å½’å¹¶æ’åºåçš„åºåˆ—");
         for (int i : arrays) {
             System.out.print(i + " ");
         }
     }
 
-    //ÅÅĞò
+    //æ’åº
     private static void Sort(int[] arrays, int left, int right) {
-        /*µİ¹é½áÊøÌõ¼ş*/
+        /*é€’å½’ç»“æŸæ¡ä»¶*/
         if (right == left) {
             return;
         }
-        int middle = (right + left) / 2;  //¶ş·Ö
-        /*µİ¹éµ÷ÓÃ(´óÎÊÌâ·Ö½â³ÉĞ¡ÎÊÌâ)+·ÖÖÎË¼Ïë(ÏÈ×óÓÒÁ½±ßÅÅĞò)*/
+        int middle = (right + left) / 2;  //äºŒåˆ†
+        /*é€’å½’è°ƒç”¨(å¤§é—®é¢˜åˆ†è§£æˆå°é—®é¢˜)+åˆ†æ²»æ€æƒ³(å…ˆå·¦å³ä¸¤è¾¹æ’åº)*/
         Sort(arrays, left, middle);
         Sort(arrays, middle + 1, right);
-        Merge(arrays, left, middle, right);/*½á¹ûµÄºÏ²¢*/
+        Merge(arrays, left, middle, right);/*ç»“æœçš„åˆå¹¶*/
     }
 
-    //ºÏ²¢
+    //åˆå¹¶
     public static void Merge(int[] arrays, int left, int middle, int right) {
         int len = right - left + 1;
         int[] temp = new int[len];
