@@ -18,6 +18,6 @@ public class Gcd {
     }
 
     public static void main(String[] args) {
-        System.out.println(Gcd.gcd(6, 4));
+        System.out.println(Gcd.gcd(24, 56));
     }
 }

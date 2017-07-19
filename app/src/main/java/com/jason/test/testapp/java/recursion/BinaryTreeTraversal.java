@@ -26,6 +26,12 @@ class TreeNode {
 }
 
 public class BinaryTreeTraversal {
+
+    /**
+     * 前序遍历
+     *
+     * @param root
+     */
     public static void PreOrderTraversal(TreeNode root) {
         /*递归结束条件*/
         if (root == null)
@@ -36,6 +42,11 @@ public class BinaryTreeTraversal {
         PreOrderTraversal(root.right);
     }
 
+    /**
+     * 中序遍历
+     *
+     * @param root
+     */
     public static void InOrderTraversal(TreeNode root) {
         /*递归结束条件*/
         if (root == null)
@@ -47,8 +58,13 @@ public class BinaryTreeTraversal {
         InOrderTraversal(root.right);
     }
 
+    /**
+     * 后序遍历
+     *
+     * @param root
+     */
     public static void PostOrderTraversal(TreeNode root) {
-		/*递归结束条件*/
+        /*递归结束条件*/
         if (root == null)
             return;
 		

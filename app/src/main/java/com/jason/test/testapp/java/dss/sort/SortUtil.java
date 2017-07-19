@@ -168,12 +168,20 @@ public class SortUtil {
         if (left >= right || right >= a.length) {
             return;
         }
-        int partition = partition1(a, left, right);
+        int partition = partition(a, left, right);
         quickSort(a, left, partition - 1);
         quickSort(a, partition + 1, right);
     }
 
-    public static int partition1(int[] a, int left, int right) {
+    /**
+     * 对数组通过指定枢纽值进行划分（是快速排序的基础和核心）
+     *
+     * @param a
+     * @param left
+     * @param right
+     * @return
+     */
+    public static int partition(int[] a, int left, int right) {
         //三数据项获取枢纽值，提升效率
         int mid = left + (right - left) / 2;
         if (a[mid] > a[right]) {
@@ -192,7 +200,7 @@ public class SortUtil {
                 right--;
             }
             a[left] = a[right];
-            while (a[left] <= key && right > left) {
+            while (a[left] <= key && left < right) {
                 left++;
             }
             a[right] = a[left];

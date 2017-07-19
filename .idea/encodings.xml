@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/BinarySearch.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/BinaryTreeTraversal.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/CalNFactorial.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/ChessBoardProblem.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/FibonacciSequence.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/Gcd.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/GraphTraversal.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/HannoitaProblem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/BinarySearch.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/BinaryTreeTraversal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/CalNFactorial.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/ChessBoardProblem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/FibonacciSequence.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/Gcd.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/GraphTraversal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/HannoitaProblem.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/MergeSortProblem.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/NQueenProblem.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/PointMinDistanceProblem.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/QuickSortProblem.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/Schedule.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/StrassenProblem.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/TuBaoProblem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/NQueenProblem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/PointMinDistanceProblem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/QuickSortProblem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/Schedule.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/StrassenProblem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jason/test/testapp/java/recursion/TuBaoProblem.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

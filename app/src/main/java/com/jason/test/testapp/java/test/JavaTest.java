@@ -1,5 +1,6 @@
 package com.jason.test.testapp.java.test;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.WeakHashMap;
 
@@ -28,7 +29,10 @@ public class JavaTest {
         obj.equals("");
     }
 
-    public void testMethod(){
+    public void testMethod() {
         WeakHashMap<String, Object> weakHashMap = new WeakHashMap<>();
     }
+
+
+
 }

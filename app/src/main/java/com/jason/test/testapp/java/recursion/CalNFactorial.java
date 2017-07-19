@@ -7,6 +7,13 @@ package com.jason.test.testapp.java.recursion;
  * @CsdnUrl: [http://blog.csdn.net/ljphhj]
  */
 public class CalNFactorial {
+
+    /**
+     * 阶乘
+     *
+     * @param n
+     * @return
+     */
     public static int f(int n) {
         /*递归结束条件*/
         if (n == 1) {

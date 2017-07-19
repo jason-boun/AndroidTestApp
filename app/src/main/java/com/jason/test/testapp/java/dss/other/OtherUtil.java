@@ -11,11 +11,20 @@ import java.util.ArrayList;
 public class OtherUtil {
 
     public static void main(String[] args) {
+        String result = "";
 //        primeTest();
-        fn(15);
+//        fn(15);
+//        method(90);
+//        factor(36);
+//        result = sb.toString();
+//        result = "" + minCommonMultiple(27, 22);
+        result = "" + maxCommonDivisor2(28, 21);
+        LogUtil.print(result);
     }
 
-
+    /**
+     * @param num
+     */
     public static void fn(int num) {
         int start = 1;
         int end = 0;
@@ -89,5 +98,120 @@ public class OtherUtil {
             }
         }
         return result;
+    }
+
+
+    /**
+     * 分解质因数
+     */
+    private static ArrayList<String> list = new ArrayList<String>();//存储质数
+    private static StringBuffer sb = new StringBuffer();
+
+    public static void method(int x) {
+        if (!isZhiShu(x)) {//判断 如果不是指数继续分解，不是的话直接结束
+            for (int i = 2; i <= x / 2; i++) {
+                if (x % i == 0) {
+                    list.add(i + "");
+                    method(x / i);//使用递归
+                    break;
+                }
+            }
+        } else {
+            list.add(x + "");
+        }
+    }
+
+
+    static void factor(int number) {
+        processList(list);
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+//                sb.append(i + "---");
+                System.out.print(i + "---");
+                //判断number/i是不是素数，如果是素数就直接输出
+                if (isPrime(number / i)) {
+//                    sb.append(number / i + "===");
+                    System.out.print(number / i + "===");
+                } else {
+                    factor(number / i);
+                }
+                return; //或者break
+            }
+        }
+    }
+
+    public static void processList(ArrayList<String> list) {
+        if (list == null) {
+            list = new ArrayList<>();
+            return;
+        }
+        list.clear();
+        if (sb == null) {
+            sb = new StringBuffer();
+            return;
+        }
+        sb.delete(0, sb.length());
+    }
+
+    public static String processResult(ArrayList<String> list) {
+        if (list == null) {
+            return "";
+        }
+        LogUtil.print("list size =" + list.size());
+        StringBuffer sb = new StringBuffer();
+        for (String i : list) {
+            sb.append(i + "*");
+        }
+        String result = sb.toString();
+        if (result.endsWith("*")) {
+            result = result.substring(0, result.length() - 1);
+        }
+        return result;
+    }
+
+    /**
+     * 将判断是否为质数
+     */
+    public static boolean isZhiShu(int f) {
+        for (int i = 2; i <= f / 2; i++) {
+            if (f % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 递归法求最大公约数
+    public static int maxCommonDivisor(int m, int n) {
+        if (m < n) {// 保证m>n,若m<n,则进行数据交换
+            int temp = m;
+            m = n;
+            n = temp;
+        }
+        if (m % n == 0) {// 若余数为0,返回最大公约数
+            return n;
+        } else { // 否则,进行递归,把n赋给m,把余数赋给n
+            return maxCommonDivisor(n, m % n);
+        }
+    }
+
+    // 循环法求最大公约数
+    public static int maxCommonDivisor2(int m, int n) {
+        if (m < n) {// 保证m>n,若m<n,则进行数据交换
+            int temp = m;
+            m = n;
+            n = temp;
+        }
+        while (m % n != 0) {// 在余数不能为0时,进行循环
+            int temp = m % n;
+            m = n;
+            n = temp;
+        }
+        return n;// 返回最大公约数
+    }
+
+    // 求最小公倍数
+    public static int minCommonMultiple(int m, int n) {
+        return m * n / maxCommonDivisor(m, n);
     }
 }

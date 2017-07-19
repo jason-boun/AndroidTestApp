@@ -16,6 +16,11 @@ public class MergeSortProblem {
         MergeSort(arrays);
     }
 
+    /**
+     *
+     *
+     * @param arrays
+     */
     public static void MergeSort(int[] arrays) {
         int len = arrays.length;
         if (len < 2)
@@ -31,7 +36,13 @@ public class MergeSortProblem {
         }
     }
 
-    //排序
+    /**
+     * 归并排序
+     *
+     * @param arrays
+     * @param left
+     * @param right
+     */
     private static void Sort(int[] arrays, int left, int right) {
         /*递归结束条件*/
         if (right == left) {
