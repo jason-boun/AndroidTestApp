@@ -33,6 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0){
+            finish();
+            return;
+        }
+
+
         Utils.init(getApplicationContext());
         setContentView(R.layout.activity_main);
         mainTv1 = (TextView) findViewById(R.id.main_tv1);
