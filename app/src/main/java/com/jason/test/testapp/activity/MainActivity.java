@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 printForegroundInfo();
                 break;
             case R.id.main_tv2:
-                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+                startActivity(new Intent(MainActivity.this, GaoSiTest.class));
                 break;
         }
     }
