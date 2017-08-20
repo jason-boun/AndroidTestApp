@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.didi.virtualapk.PluginManager;
 import com.jason.test.testapp.R;
 import com.jason.test.testapp.data.MsgEvent;
 import com.jason.test.testapp.service.MService;
@@ -22,8 +23,12 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.File;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static android.os.Environment.getExternalStorageDirectory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-
         Utils.init(getApplicationContext());
         setContentView(R.layout.activity_main);
         mainTv1 = (TextView) findViewById(R.id.main_tv1);
@@ -47,25 +51,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setTitle("首页");
         findViewById(R.id.main_tv2).setOnClickListener(this);
         findViewById(R.id.main_tv1).setOnClickListener(this);
-        ViewGroup viewGroup = new ViewGroup(this) {
-            @Override
-            protected void onLayout(boolean changed, int l, int t, int r, int b) {
-
-            }
-        };
+        reloadPlugin();
     }
 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_tv1:
 //                ToastTest();
-                printForegroundInfo();
+//                printForegroundInfo();
+                startPluginPage();
                 break;
             case R.id.main_tv2:
                 startActivity(new Intent(MainActivity.this, GaoSiTest.class));
                 break;
         }
     }
+
+    public void reloadPlugin(){
+        PluginManager pluginManager = PluginManager.getInstance(this);
+        File apk = new File(getExternalStorageDirectory()+"/vtplugin/", "plugin.apk");
+        if (apk.exists()) {
+            try {
+                pluginManager.loadPlugin(apk);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void startPluginPage(){
+        if (PluginManager.getInstance(this).getLoadedPlugin("com.jason.vtplugin") == null) {
+            Toast.makeText(getApplicationContext(), "插件未加载,请尝试重启APP", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setClassName("com.jason.vtplugin","com.jason.vtplugin.MainActivity");
+        startActivity(intent);
+    }
+
 
     public void ObserverTest() {
         BaseAdapter baseAdapter = new BaseAdapter() {

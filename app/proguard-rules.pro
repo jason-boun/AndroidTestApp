@@ -15,3 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keep class com.didi.virtualapk.internal.VAInstrumentation { *; }
+-keep class com.didi.virtualapk.internal.PluginContentResolver { *; }
+-dontwarn com.didi.virtualapk.**
+-dontwarn android.content.pm.**
+-keep class android.** { *; }

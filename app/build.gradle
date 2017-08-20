@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.didi.virtualapk.host'
 apply plugin: 'android-apt'
 def AAVersion = '3.2'
 
@@ -6,19 +7,42 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
-        applicationId "com.jason.test.testapp"
+        applicationId "com.jason.testapp"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            storeFile file(KEY_STORE_PATH)
+            storePassword "${KEY_STORE_PASSWORD}"
+            keyAlias "${KEY_STORE_ALAIS}"
+            keyPassword "${KEY_STORE_PASSWORD}"
+        }
+        debug {
+            storeFile file(KEY_STORE_PATH)
+            storePassword "${KEY_STORE_PASSWORD}"
+            keyAlias "${KEY_STORE_ALAIS}"
+            keyPassword "${KEY_STORE_PASSWORD}"
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+//            proguardFiles 'proguard.cfg'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
     dexOptions {
         incremental true
     }
@@ -44,6 +68,9 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jakewharton:butterknife:8.5.1'
     compile 'com.google.code.gson:gson:2.8.1'
+
+    //virtual插件化框架
+    compile 'com.didi.virtualapk:core:0.9.0'
 
 }
 
