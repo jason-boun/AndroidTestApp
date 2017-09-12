@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/home_root_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.jason.test.testapp.test.ui.MyFrameLayout
+        android:id="@+id/my_test_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <com.jason.test.testapp.test.ui.MyTextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="my fragment textView"/>
+
+        <com.jason.test.testapp.test.ui.MyTextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:text="my fragment textView"/>
+    </com.jason.test.testapp.test.ui.MyFrameLayout>
+
+</RelativeLayout>

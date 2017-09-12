@@ -61,7 +61,7 @@ freeline_project_description.json
 */.settings/
 */.DS_Store
 .DS_Store
-*/.idea/
+*/.idea/*
 .idea/*
 */misc.xml
 
@@ -73,3 +73,5 @@ freeline_project_description.json
 /build
 .idea/
 app/app.iml
+
+

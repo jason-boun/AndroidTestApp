@@ -73,6 +73,9 @@ dependencies {
 
     //virtual插件化框架
     compile 'com.didi.virtualapk:core:0.9.0'
+    //日志
+    compile 'com.orhanobut:logger:1.3'
+
 }
 
 
