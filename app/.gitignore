@@ -62,4 +62,14 @@ freeline_project_description.json
 */.DS_Store
 .DS_Store
 */.idea/
+.idea/*
+*/misc.xml
+
+
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/build
 .idea/
+app/app.iml
