@@ -12,10 +12,11 @@ import android.widget.Toast;
 
 import com.didi.virtualapk.PluginManager;
 import com.jason.test.testapp.R;
-import com.jason.test.testapp.data.MsgEvent;
+import com.jason.test.testapp.data.BaseEvent;
+import com.jason.test.testapp.data.event.ParentEvent;
+import com.jason.test.testapp.data.event.SubEventOne;
+import com.jason.test.testapp.data.event.SubEventTwo;
 import com.jason.test.testapp.service.MService;
-import com.jason.test.testapp.utils.AppInfoUtil;
-import com.jason.test.testapp.utils.LogUtil;
 import com.jason.test.testapp.utils.ToastUtils;
 import com.jason.test.testapp.utils.Utils;
 
@@ -24,9 +25,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
@@ -39,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0){
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
             finish();
             return;
         }
@@ -59,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_tv1:
 //                ToastTest();
 //                printForegroundInfo();
-                startPluginPage();
+//                startPluginPage();
+                startActivity(new Intent(MainActivity.this, ThirdActivity.class));
                 break;
             case R.id.main_tv2:
                 startActivity(new Intent(MainActivity.this, GaoSiTest.class));
@@ -67,9 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void reloadPlugin(){
+    public void reloadPlugin() {
         PluginManager pluginManager = PluginManager.getInstance(this);
-        File apk = new File(getExternalStorageDirectory()+"/vtplugin/", "plugin.apk");
+        File apk = new File(getExternalStorageDirectory() + "/vtplugin/", "plugin.apk");
         if (apk.exists()) {
             try {
                 pluginManager.loadPlugin(apk);
@@ -79,13 +78,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void startPluginPage(){
+    private void startPluginPage() {
         if (PluginManager.getInstance(this).getLoadedPlugin("com.jason.vtplugin") == null) {
             Toast.makeText(getApplicationContext(), "插件未加载,请尝试重启APP", Toast.LENGTH_SHORT).show();
             return;
         }
         Intent intent = new Intent();
-        intent.setClassName("com.jason.vtplugin","com.jason.vtplugin.MainActivity");
+        intent.setClassName("com.jason.vtplugin", "com.jason.vtplugin.MainActivity");
         startActivity(intent);
     }
 
@@ -127,9 +126,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void handleEventOnMain(MsgEvent msgEvent) {
-        if (msgEvent != null) {
-            mainTv1.setText(msgEvent.getMsg());
+    public void handleEventOnMain(ParentEvent event) {
+        if (event instanceof SubEventOne) {
+            ToastUtils.showLongToast("SubEventOne");
+            mainTv1.setText(((SubEventOne) event).getSubName());
+        } else if (event instanceof SubEventTwo) {
+            ToastUtils.showLongToast("SubEventTwo");
+            mainTv1.setText(((SubEventTwo) event).getSubName());
         }
     }
 

@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.jason.test.testapp.R;
 import com.jason.test.testapp.component.customtextview.SpannableStringUtils;
-import com.jason.test.testapp.data.MsgEvent;
+import com.jason.test.testapp.data.BaseEvent;
 import com.jason.test.testapp.utils.NetUtils;
 import com.jason.test.testapp.utils.ToastUtils;
 
@@ -52,7 +52,7 @@ public class SecondActivity extends AppCompatActivity {
         findViewById(R.id.second_tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new MsgEvent("fuck u!"));
+                EventBus.getDefault().post(new BaseEvent("fuck u!"));
                 Toast.makeText(SecondActivity.this, "fuck u", Toast.LENGTH_SHORT).show();
             }
         });
