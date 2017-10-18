@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 import com.didi.virtualapk.PluginManager;
 import com.jason.test.testapp.R;
-import com.jason.test.testapp.data.BaseEvent;
 import com.jason.test.testapp.data.event.ParentEvent;
 import com.jason.test.testapp.data.event.SubEventOne;
 import com.jason.test.testapp.data.event.SubEventTwo;
+import com.jason.test.testapp.listtree.ListTreeSelector;
 import com.jason.test.testapp.service.MService;
 import com.jason.test.testapp.utils.ToastUtils;
 import com.jason.test.testapp.utils.Utils;
@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                ToastTest();
 //                printForegroundInfo();
 //                startPluginPage();
-                startActivity(new Intent(MainActivity.this, ThirdActivity.class));
+//                startActivity(new Intent(MainActivity.this, ThirdActivity.class));
+                ListTreeSelector.buildActionWindow(mainTv1,ListTreeSelector.buildActionData(),"list tree" );
                 break;
             case R.id.main_tv2:
                 startActivity(new Intent(MainActivity.this, GaoSiTest.class));

@@ -1,7 +1,11 @@
 package com.jason.test.testapp.java.test;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import com.jason.test.testapp.data.bean.TestBean;
+import com.jason.test.testapp.utils.JsonUtil;
+import com.jason.test.testapp.utils.LogUtil;
+
+import org.json.JSONObject;
+
 import java.util.WeakHashMap;
 
 /**
@@ -11,6 +15,18 @@ import java.util.WeakHashMap;
 public class JavaTest {
 
     public static void main(String[] params) {
+//        StringObject();
+        TestBean testBean = new TestBean();
+        testBean.setData(5);
+        testBean.setAge(11);
+        testBean.setGrade(5.63);
+        String jsonStr = JsonUtil.toJson(testBean);
+        LogUtil.print(jsonStr);
+        jsonConvert(jsonStr);
+
+    }
+
+    private static void StringObject() {
         String s1 = "abc";
         String s2 = "abc";
         String s3 = new String("abc");
@@ -29,10 +45,23 @@ public class JavaTest {
         obj.equals("");
     }
 
+    public static <T> void jsonConvert(String newValue) {
+        try {
+            JSONObject dataJson = new JSONObject(newValue);
+            Integer age = (Integer) dataJson.opt("age");
+            Double gradle = (Double) dataJson.opt("gradle");
+            LogUtil.print(age.toString());
+            LogUtil.print(gradle.toString());
+//            T temp = (T) dataJson.opt("data");
+        } catch (Exception e) {
+            LogUtil.print("Error" + e.getMessage());
+        }
+
+    }
+
     public void testMethod() {
         WeakHashMap<String, Object> weakHashMap = new WeakHashMap<>();
     }
-
 
 
 }

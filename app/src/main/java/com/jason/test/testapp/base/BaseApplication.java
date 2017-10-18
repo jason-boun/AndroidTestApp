@@ -11,9 +11,12 @@ import com.didi.virtualapk.PluginManager;
 
 public class BaseApplication extends Application {
 
+    public static Application application;
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         PluginManager.getInstance(base).init();
+        this.application = this;
     }
 }

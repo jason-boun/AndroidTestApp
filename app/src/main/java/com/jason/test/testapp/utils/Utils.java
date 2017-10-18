@@ -2,6 +2,8 @@ package com.jason.test.testapp.utils;
 
 import android.content.Context;
 
+import java.text.DecimalFormat;
+
 /**
  * <pre>
  *     author: Blankj
@@ -35,5 +37,33 @@ public final class Utils {
     public static Context getContext() {
         if (context != null) return context;
         throw new NullPointerException("u should init first");
+    }
+
+
+    /**
+     * 把double（四舍五入）转换为两位小数显示
+     */
+    public final static String formatDoubleForStr(double d) {
+        double dou = (double) Math.round(d * 100) / 100;
+        DecimalFormat df = new DecimalFormat("#0.00");
+        return df.format(dou);
+    }
+
+    /**
+     * 把double（四舍五入）转换为两位小数显示
+     */
+    public static double formatDouble(double d) {
+        return Double.parseDouble(formatDoubleForStr(d));
+    }
+
+    public static double sqrt(double a, double b) {
+        double one = Math.abs(formatDouble(a));
+        double two = Math.abs(formatDouble(b));
+        return Math.sqrt(one * one + two * two);
+    }
+
+    public static void main(String[] params) {
+        String result = formatDoubleForStr(sqrt(2.252345234,4.1345542134));
+        LogUtil.print(result);
     }
 }
